@@ -1,0 +1,40 @@
+## **Calculadora de Crecimiento**
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Crecimiento</title>
+</head>
+<body>
+    <div class="calculator">
+        <label>Seguidores Iniciales:</label>
+        <input type="number" id="seguidoresIniciales" placeholder="Introduce seguidores iniciales" required>
+
+        <label>Seguidores Ganados:</label>
+        <input type="number" id="seguidoresGanados" placeholder="Introduce seguidores ganados" required>
+
+        <button onclick="calcularCrecimiento()">Calcular Crecimiento</button>
+
+        <div class="results">
+            <p><strong>Crecimiento Mensual:</strong> <span id="crecimiento">0%</span></p>
+        </div>
+    </div>
+
+    <script>
+        function calcularCrecimiento() {
+            const seguidoresIniciales = document.getElementById("seguidoresIniciales").value;
+            const seguidoresGanados = document.getElementById("seguidoresGanados").value;
+
+            if (!seguidoresIniciales || !seguidoresGanados) {
+                alert("Por favor, completa todos los campos.");
+                return;
+            }
+
+            const crecimiento = (seguidoresGanados / seguidoresIniciales) * 100;
+            document.getElementById("crecimiento").innerText = crecimiento.toFixed(2) + "%";
+        }
+    </script>
+</body>
+</html>
